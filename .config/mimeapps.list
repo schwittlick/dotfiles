@@ -1,0 +1,16 @@
+[Default Applications]
+image/png=swayimg.desktop
+text/html=google-chrome.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
+text/plain=vim.desktop
+application/pdf=sioyek.desktop
+image/jpeg=swayimg.desktop
+
+[Added Associations]
+image/png=sxiv.desktop;swayimg.desktop;
+text/plain=vim.desktop;
+application/pdf=sioyek.desktop;
+image/jpeg=swayimg.desktop;
