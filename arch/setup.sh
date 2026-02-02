@@ -9,4 +9,5 @@ if ! command -v yay; then
 	yay -Y --gendb
 fi
 
-pacman -S --needed - < pacman.txt
+sudo pacman -S --needed - < pacman.txt
+sudo yay - < pacman.txt
