@@ -11,3 +11,5 @@ fi
 
 sudo pacman -S --needed - < pacman.txt
 yay - < pacman.txt
+
+curl -LsSf https://astral.sh/uv/install.sh | sh
