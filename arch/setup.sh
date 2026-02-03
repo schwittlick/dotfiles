@@ -12,4 +12,7 @@ fi
 sudo pacman -S --needed - < pacman.txt
 yay - < pacman.txt
 
+sudo systemctl enable sshd.service
+sudo systemctl start --now sshd.service
+
 curl -LsSf https://astral.sh/uv/install.sh | sh

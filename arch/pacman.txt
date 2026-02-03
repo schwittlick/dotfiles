@@ -779,6 +779,7 @@ vlc-plugin-dbus
 vlc-plugin-dbus-screensaver
 vlc-plugin-faad2
 vlc-plugin-flac
+vlc-plugin-ffmpeg
 vlc-plugin-gnutls
 vlc-plugin-inflate
 vlc-plugin-journal
