@@ -17,4 +17,8 @@ sudo systemctl start --now sshd.service
 sudo systemctl enable avahi-daemon.service
 sudo systemctl start --now avahi-daemon.service
 
+# now edit /etc/nsswitch.conf and add this
+# mdns_minimal [NOTFOUND=return]
+# between "files" and "resolve" in the line with "hosts:"
+
 curl -LsSf https://astral.sh/uv/install.sh | sh
