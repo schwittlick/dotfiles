@@ -10,4 +10,4 @@ if ! command -v yay; then
 fi
 
 sudo pacman -S --needed - < pacman.txt
-sudo yay - < pacman.txt
+yay - < pacman.txt
