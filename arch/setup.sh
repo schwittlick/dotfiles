@@ -14,5 +14,7 @@ yay - < pacman.txt
 
 sudo systemctl enable sshd.service
 sudo systemctl start --now sshd.service
+sudo systemctl enable avahi-daemon.service
+sudo systemctl start --now avahi-daemon.service
 
 curl -LsSf https://astral.sh/uv/install.sh | sh
