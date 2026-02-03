@@ -1,15 +1,10 @@
 dropbox
 dropbox-cli
 gdbuspp
-gdbuspp-debug
 google-chrome
 hyprswitch
-hyprswitch-debug
 joplin
-joplin-desktop
 openvpn3
-openvpn3-debug
 openvpn3-indicator-git
 sioyek
-sioyek-debug
 visual-studio-code-bin
