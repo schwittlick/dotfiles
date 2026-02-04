@@ -10,7 +10,7 @@ if ! command -v yay; then
 fi
 
 sudo pacman -S --needed - < pacman.txt
-yay - < pacman.txt
+yay - < yay.txt
 
 sudo systemctl enable sshd.service
 sudo systemctl start --now sshd.service
