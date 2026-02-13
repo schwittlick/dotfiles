@@ -18,5 +18,5 @@ function open () {
 }
 
 export EDITOR=vim
-
+source /usr/share/git/completion/git-completion.bash 
 . "$HOME/.local/share/../bin/env"
