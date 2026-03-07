@@ -1,0 +1,7 @@
+[Nemo Action]
+Name=Reduce Quality…
+Comment=Reduce image quality and save as JPEG
+Exec=bash -c 'q=$(zenity --entry --title="Reduce Quality" --text="Quality (1=worst, 100=best):" --entry-text="50"); [ -n "$q" ] && for f in %F; do base="${f%.*}"; convert "$f" -quality "${q}" "${base}_q${q}.jpg"; done'
+Icon-Name=image-x-generic
+Selection=any
+Extensions=jpg;jpeg;png;gif;bmp;tiff;webp;

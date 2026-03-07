@@ -1,0 +1,7 @@
+[Nemo Action]
+Name=Scale & Reduce Quality…
+Comment=Scale image and reduce quality, saved as JPEG
+Exec=bash -c 'p=$(zenity --entry --title="Scale & Reduce Quality" --text="Scale to %% of original:" --entry-text="50"); [ -z "$p" ] && exit; q=$(zenity --entry --title="Scale & Reduce Quality" --text="Quality (1=worst, 100=best):" --entry-text="50"); [ -z "$q" ] && exit; for f in %F; do base="${f%.*}"; convert "$f" -resize "${p}%%" -quality "${q}" "${base}_s${p}_q${q}.jpg"; done'
+Icon-Name=image-x-generic
+Selection=any
+Extensions=jpg;jpeg;png;gif;bmp;tiff;webp;
