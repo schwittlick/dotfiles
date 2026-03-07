@@ -372,3 +372,26 @@ label:focus {
 #privacy-item.audio-out {
   background-color: #0069d4;
 }
+
+
+#custom-lyrik-progress {
+    font-family: monospace;
+    padding: 0 8px;
+}
+
+#custom-lyrik-progress.running {
+    color: #a6e3a1;  /* green */
+}
+
+#custom-lyrik-progress.done {
+    color: #f9e2af;  /* yellow — waiting for you to clear */
+}
+
+#custom-lyrik-progress.offline {
+    color: #f38ba8;  /* red */
+}
+
+#custom-lyrik-progress.idle {
+    /* hide when nothing is happening — or set color: transparent */
+    color: #6c7086;
+}

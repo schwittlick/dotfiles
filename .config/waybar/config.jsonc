@@ -16,6 +16,7 @@
   "modules-right": [
     //  "mpd",
     //  "idle_inhibitor",
+    "custom/lyrik-progress",
     "custom/pomodoro",
     "pulseaudio",
     "pulseaudio/slider",
@@ -228,4 +229,11 @@
     "on-click": "waybar-module-pomodoro toggle",
     "on-click-right": "waybar-module-pomodoro reset",
   },
+  "custom/lyrik-progress": {
+        "exec": "~/.local/bin/waybar_progress.py",
+        "return-type": "json",
+        "interval": 5,
+        "on-click": "~/.local/bin/waybar_progress.py --clear-done",
+        "tooltip": true
+    }
 }
