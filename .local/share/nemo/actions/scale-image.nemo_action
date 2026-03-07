@@ -1,0 +1,7 @@
+[Nemo Action]
+Name=Scale Image…
+Comment=Scale image to a percentage of original size
+Exec=bash -c 'p=$(zenity --entry --title="Scale Image" --text="Scale to %% of original:" --entry-text="50"); [ -n "$p" ] && for f in %F; do ext="${f##*.}"; base="${f%.*}"; convert "$f" -resize "${p}%%" "${base}_scaled.${ext}"; done'
+Icon-Name=image-x-generic
+Selection=any
+Extensions=jpg;jpeg;png;gif;bmp;tiff;webp;
