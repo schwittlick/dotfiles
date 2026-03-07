@@ -1,0 +1,4 @@
+#!/bin/sh
+filename=$(basename "$1")
+info=$(identify -format "%wx%h %[fx:w*h/1000000]MP %b" "$1")
+echo "$filename | $info"
