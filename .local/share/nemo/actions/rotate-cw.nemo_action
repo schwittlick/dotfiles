@@ -1,0 +1,7 @@
+[Nemo Action]
+Name=Rotate 90° Clockwise
+Comment=Rotate image 90 degrees clockwise in-place
+Exec=bash -c 'for f in %F; do convert "$f" -rotate 90 "$f"; done'
+Icon-Name=image-x-generic
+Selection=any
+Extensions=jpg;jpeg;png;gif;bmp;tiff;webp;

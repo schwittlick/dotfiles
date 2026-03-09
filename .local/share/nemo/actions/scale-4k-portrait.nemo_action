@@ -1,0 +1,7 @@
+[Nemo Action]
+Name=Scale to 4K Portrait…
+Comment=Scale image down to fit within 2160x3840, keeping aspect ratio
+Exec=bash -c 'for f in %F; do base="${f%.*}"; convert "$f" -resize "2160x3840>" "${base}_4k_portrait.jpg"; done'
+Icon-Name=image-x-generic
+Selection=any
+Extensions=jpg;jpeg;png;gif;bmp;tiff;webp;
