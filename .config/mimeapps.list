@@ -1,5 +1,5 @@
 [Default Applications]
-image/png=swayimg.desktop
+image/png=sxiv.desktop
 text/html=google-chrome.desktop
 x-scheme-handler/http=google-chrome.desktop
 x-scheme-handler/https=google-chrome.desktop
@@ -7,7 +7,13 @@ x-scheme-handler/about=google-chrome.desktop
 x-scheme-handler/unknown=google-chrome.desktop
 text/plain=vim.desktop
 application/pdf=sioyek.desktop
-image/jpeg=swayimg.desktop
+image/jpeg=sxiv.desktop
+application/vnd.hp-hpgl=hpgl-viewer.desktop
+application/hp-HPGL=hpgl-viewer.desktop
+image/vnd.hp-hpgl=hpgl-viewer.desktop
+application/vnd.hp-HPGL=hpgl-viewer.desktop
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop
+image/jpg=sxiv.desktop
 
 [Added Associations]
 image/png=sxiv.desktop;swayimg.desktop;
