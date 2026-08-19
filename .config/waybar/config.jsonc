@@ -29,6 +29,7 @@
        // "sway/language",
         "battery",
        // "battery#bat2",
+        "custom/resolution",
         "clock",
         "tray"
         //"custom/power"
@@ -191,6 +192,13 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
+    },
+    "custom/resolution": {
+        "format": " {}",
+        "return-type": "json",
+        "interval": 5,
+        "exec": "$HOME/.config/waybar/scripts/resolution.sh status",
+        "on-click": "$HOME/.config/waybar/scripts/resolution.sh menu"
     },
     "custom/media": {
         "format": "{icon} {text}",
