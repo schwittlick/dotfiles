@@ -18,7 +18,9 @@ case "$1" in
   open)
     # Re-enable eDP-1 only if it was actually disabled (i.e. clamshell wake).
     if ! hyprctl monitors | grep -q 'Monitor eDP-1'; then
-      monitor_rule 'output = "eDP-1", mode = "preferred", position = "auto", scale = 2' "eDP-1, preferred, auto, 2"
+      # disabled = false is required: hl.monitor merges into the existing rule,
+      # so without it the earlier disable sticks and the panel stays off.
+      monitor_rule 'output = "eDP-1", mode = "preferred", position = "auto", scale = 2, disabled = false' "eDP-1, preferred, auto, 2"
     fi
     ;;
 esac

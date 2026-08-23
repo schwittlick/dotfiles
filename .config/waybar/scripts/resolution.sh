@@ -7,9 +7,11 @@ set -euo pipefail
 notify() { hyprctl notify -1 3000 "rgb(ffff00)" "$1" >/dev/null 2>&1 || true; }
 
 # Applies a mode. Prefers the lua API, falls back to hyprlang keyword syntax.
+# disabled = false is required: hl.monitor merges into the existing rule, so
+# without it a previously disabled output stays off despite reporting ok.
 apply() {
     local name=$1 mode=$2 pos=$3 scale=$4 out
-    out=$(hyprctl eval "hl.monitor({ output = \"$name\", mode = \"$mode\", position = \"$pos\", scale = $scale })" 2>&1) || true
+    out=$(hyprctl eval "hl.monitor({ output = \"$name\", mode = \"$mode\", position = \"$pos\", scale = $scale, disabled = false })" 2>&1) || true
     [[ $out == ok* ]] || out=$(hyprctl keyword monitor "$name,$mode,$pos,$scale" 2>&1) || true
 
     if [[ $out == ok* ]]; then

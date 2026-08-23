@@ -20,3 +20,7 @@ function open () {
 export EDITOR=vim
 
 . "$HOME/.local/share/../bin/env"
+source /usr/share/bash-completion/bash_completion
+
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.npm-global/bin:$PATH"
