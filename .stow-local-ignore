@@ -2,3 +2,29 @@
 readme.md
 arch
 setup.sh
+
+# App state / profiles that must never be deployed by stow.
+# Patterns containing a slash are matched against the full path
+# relative to the package root. Keep in sync with .gitignore.
+\.config/Code
+\.config/google-chrome
+\.config/mozilla
+\.config/Signal
+\.config/joplin-desktop
+\.config/Joplin
+\.config/everdo
+\.config/keepassxc
+\.config/filezilla
+\.config/evolution
+\.config/darktable
+\.config/libreoffice
+\.config/projectGenerator
+\.config/GIMP
+\.config/unity3d
+\.config/crossnote
+\.config/dconf
+\.config/pulse
+\.config/session
+\.config/menus
+\.config/go
+\.config/uv

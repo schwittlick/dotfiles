@@ -1,0 +1,26 @@
+# App state, profiles and caches that ended up here via `stow --adopt .`
+# folding a directory into a symlink and letting the app write through it.
+# These are NOT config — they include browser/Signal profiles with cookies,
+# session tokens and saved passwords. Never commit them.
+.config/Code/
+.config/google-chrome/
+.config/mozilla/
+.config/Signal/
+.config/joplin-desktop/
+.config/Joplin/
+.config/everdo/
+.config/keepassxc/
+.config/filezilla/
+.config/evolution/
+.config/darktable/
+.config/libreoffice/
+.config/projectGenerator/
+.config/GIMP/
+.config/unity3d/
+.config/crossnote/
+.config/dconf/
+.config/pulse/
+.config/session/
+.config/menus/
+.config/go/
+.config/uv/
