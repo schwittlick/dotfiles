@@ -3,6 +3,9 @@ readme.md
 arch
 setup.sh
 
+# Repo metadata, not a dotfile — must not land at ~/.gitignore.
+\.gitignore
+
 # App state / profiles that must never be deployed by stow.
 # Patterns containing a slash are matched against the full path
 # relative to the package root. Keep in sync with .gitignore.
@@ -28,3 +31,29 @@ setup.sh
 \.config/menus
 \.config/go
 \.config/uv
+
+# KDE/Qt and desktop app settings, written by the apps themselves.
+\.config/QtProject\.conf
+\.config/arkrc
+\.config/baloofileinformationrc
+\.config/dolphinrc
+\.config/katevirc
+\.config/kdeglobals
+\.config/kiorc
+\.config/krename\.kmessagebox
+\.config/krenamerc
+\.config/ktrashrc
+\.config/okularpartrc
+\.config/okularrc
+\.config/pavucontrol\.ini
+\.config/trashrc
+\.config/audacious
+\.config/fooyin
+\.config/galculator
+\.config/gedit
+\.config/hpgl-viewer
+\.config/inkscape
+\.config/qalculate
+\.config/simple-scan
+\.config/vlc
+\.config/xournalpp

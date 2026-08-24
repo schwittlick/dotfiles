@@ -1,6 +1,6 @@
 # App state, profiles and caches that ended up here via `stow --adopt .`
 # folding a directory into a symlink and letting the app write through it.
-# These are NOT config — they include browser/Signal profiles with cookies,
+# These are NOT config — the browser/Signal profiles include cookies,
 # session tokens and saved passwords. Never commit them.
 .config/Code/
 .config/google-chrome/
@@ -24,3 +24,30 @@
 .config/menus/
 .config/go/
 .config/uv/
+
+# Same category, smaller: KDE/Qt and desktop app settings written by the
+# apps themselves. Nothing here was hand-authored.
+.config/QtProject.conf
+.config/arkrc
+.config/baloofileinformationrc
+.config/dolphinrc
+.config/katevirc
+.config/kdeglobals
+.config/kiorc
+.config/krename.kmessagebox
+.config/krenamerc
+.config/ktrashrc
+.config/okularpartrc
+.config/okularrc
+.config/pavucontrol.ini
+.config/trashrc
+.config/audacious/
+.config/fooyin/
+.config/galculator/
+.config/gedit/
+.config/hpgl-viewer/
+.config/inkscape/
+.config/qalculate/
+.config/simple-scan/
+.config/vlc/
+.config/xournalpp/
