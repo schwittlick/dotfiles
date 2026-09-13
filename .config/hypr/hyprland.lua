@@ -5,8 +5,7 @@
 ---- MONITORS ----
 ------------------
 
-hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 2 })
-hl.monitor({ output = "DP-2", mode = "3840x2160@60", position = "0x0", scale = 1.5 })
+hl.monitor({ output = "DP-2", mode = "3840x2160@60", position = "0x0", scale = 1.0 })
 
 ---------------------
 ---- MY PROGRAMS ----
@@ -112,7 +111,7 @@ local mainMod = "SUPER"
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("swaylock -f"))
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd(
     [[command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()']]))
 
