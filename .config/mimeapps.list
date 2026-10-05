@@ -1,23 +1,19 @@
+[Added Associations]
+image/jpeg=ristretto.desktop;firefox-esr.desktop;
+video/mp4=org.xfce.Parole.desktop;
+image/png=sxiv.desktop;gimp.desktop;ristretto.desktop;firefox-esr.desktop;
+application/pdf=atril.desktop;
+application/vnd.hp-hpgl=org.gnome.gedit.desktop;xfce4-appfinder.desktop;
+text/x-arduino=arduino.desktop;
+text/x-python=org.gnome.gedit.desktop;mousepad.desktop;
+text/plain=mousepad.desktop;
+application/x-netcdf=org.gnome.gedit.desktop;
+
 [Default Applications]
 image/png=sxiv.desktop
-text/html=google-chrome.desktop
-x-scheme-handler/http=google-chrome.desktop
-x-scheme-handler/https=google-chrome.desktop
-x-scheme-handler/about=google-chrome.desktop
-x-scheme-handler/unknown=google-chrome.desktop
-text/plain=vim.desktop
-application/pdf=okularApplication_pdf.desktop
-image/jpeg=sxiv.desktop
-x-scheme-handler/sgnl=signal.desktop
-x-scheme-handler/signalcaptcha=signal.desktop
-x-scheme-handler/claude-cli=claude-code-url-handler.desktop
-image/x-adobe-dng=sxiv.desktop
-image/tiff=sxiv.desktop
-
-[Added Associations]
-image/png=sxiv.desktop;swayimg.desktop;okularApplication_kimgio.desktop;imv.desktop;
-text/plain=vim.desktop;
-application/pdf=sioyek.desktop;okularApplication_pdf.desktop;
-image/jpeg=swayimg.desktop;sxiv.desktop;
-image/x-adobe-dng=sxiv.desktop;
-image/tiff=sxiv.desktop;
+image/jpeg=ristretto.desktop
+text/html=chromium.desktop
+x-scheme-handler/http=chromium.desktop
+x-scheme-handler/https=chromium.desktop
+x-scheme-handler/about=chromium.desktop
+x-scheme-handler/unknown=chromium.desktop
