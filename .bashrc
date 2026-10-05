@@ -17,6 +17,6 @@ function open () {
   xdg-open "$@">/dev/null 2>&1
 }
 
-export EDITOR=vim
+export EDITOR=nvim
 source /usr/share/git/completion/git-completion.bash 
 . "$HOME/.local/share/../bin/env"
