@@ -1,0 +1,42 @@
+# Dolphin port of ~/.local/share/nemo/actions (resize, quality, rotate).
+# Action IDs set the menu order: KIO sorts service actions by ID, not by Name.
+# No X-KDE-Submenu: KIO 6.29 drops service submenus (fixed in 6.30).
+[Desktop Entry]
+Type=Service
+MimeType=image/jpeg;image/png;image/gif;image/bmp;image/tiff;image/webp;
+Actions=imagetools2ReduceQuality;imagetools3ScaleImage;imagetools4ScaleReduceQuality;imagetools5Scale4kLandscape;imagetools6Scale4kPortrait;imagetools7RotateCw;imagetools8RotateCcw;
+
+[Desktop Action imagetools2ReduceQuality]
+Name=Reduce Quality…
+Icon=image-x-generic
+Exec=bash -c 'q=$(kdialog --title "Reduce Quality" --inputbox "Quality (1=worst, 100=best):" 50) && [ -n "$q" ] || exit; for f in "$@"; do magick "$f" -quality "$q" "${f%.*}_q${q}.jpg"; done' _ %F
+
+[Desktop Action imagetools3ScaleImage]
+Name=Scale Image…
+Icon=image-x-generic
+Exec=bash -c 'p=$(kdialog --title "Scale Image" --inputbox "Scale to %% of original:" 50) && [ -n "$p" ] || exit; for f in "$@"; do magick "$f" -resize "${p}%%" "${f%.*}_scaled.${f##*.}"; done' _ %F
+
+[Desktop Action imagetools4ScaleReduceQuality]
+Name=Scale & Reduce Quality…
+Icon=image-x-generic
+Exec=bash -c 'p=$(kdialog --title "Scale & Reduce Quality" --inputbox "Scale to %% of original:" 50) && [ -n "$p" ] || exit; q=$(kdialog --title "Scale & Reduce Quality" --inputbox "Quality (1=worst, 100=best):" 50) && [ -n "$q" ] || exit; for f in "$@"; do magick "$f" -resize "${p}%%" -quality "$q" "${f%.*}_s${p}_q${q}.jpg"; done' _ %F
+
+[Desktop Action imagetools5Scale4kLandscape]
+Name=Scale to 4K Landscape
+Icon=image-x-generic
+Exec=bash -c 'for f in "$@"; do magick "$f" -resize "3840x2160>" "${f%.*}_4k_landscape.jpg"; done' _ %F
+
+[Desktop Action imagetools6Scale4kPortrait]
+Name=Scale to 4K Portrait
+Icon=image-x-generic
+Exec=bash -c 'for f in "$@"; do magick "$f" -resize "2160x3840>" "${f%.*}_4k_portrait.jpg"; done' _ %F
+
+[Desktop Action imagetools7RotateCw]
+Name=Rotate 90° Clockwise
+Icon=object-rotate-right
+Exec=bash -c 'for f in "$@"; do magick "$f" -rotate 90 "$f"; done' _ %F
+
+[Desktop Action imagetools8RotateCcw]
+Name=Rotate 90° Counter-Clockwise
+Icon=object-rotate-left
+Exec=bash -c 'for f in "$@"; do magick "$f" -rotate -90 "$f"; done' _ %F

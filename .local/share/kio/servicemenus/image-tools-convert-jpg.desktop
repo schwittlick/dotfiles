@@ -1,0 +1,11 @@
+# Separate file because it accepts more formats than the other image tools.
+# Skips files that are already .jpg so they are not re-encoded in place.
+[Desktop Entry]
+Type=Service
+MimeType=image/png;image/gif;image/bmp;image/tiff;image/webp;image/heif;image/avif;image/x-portable-pixmap;image/x-portable-graymap;image/x-portable-bitmap;image/x-tga;image/vnd.microsoft.icon;image/jpeg;
+Actions=imagetools1ConvertJpg;
+
+[Desktop Action imagetools1ConvertJpg]
+Name=Convert to JPG
+Icon=image-x-generic
+Exec=bash -c 'for f in "$@"; do out="${f%.*}.jpg"; [ "$out" = "$f" ] && continue; magick "$f" -background white -flatten -quality 95 "$out"; done' _ %F

@@ -1,0 +1,7 @@
+[Nemo Action]
+Name=Convert to JPG
+Comment=Convert image to JPEG format
+Exec=bash -c 'for f in %F; do base="${f%.*}"; convert "$f" -background white -flatten -quality 95 "${base}.jpg"; done'
+Icon-Name=image-x-generic
+Selection=any
+Extensions=png;gif;bmp;tiff;tif;webp;heic;heif;avif;ppm;pgm;pbm;tga;ico;jpeg;
