@@ -57,3 +57,4 @@ setup.sh
 \.config/simple-scan
 \.config/vlc
 \.config/xournalpp
+\.config/systemd
