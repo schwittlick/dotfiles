@@ -12,7 +12,7 @@ hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1.2 })
 ---------------------
 
 local terminal    = "kitty"
-local fileManager = "nemo"
+local fileManager = "dolphin"
 local menu        = "rofi -show drun"
 
 -------------------
@@ -42,8 +42,8 @@ hl.env("HYPRCURSOR_SIZE", "24")
 
 hl.config({
     general = {
-        gaps_in  = 0,
-        gaps_out = 0,
+        gaps_in  = 2,
+        gaps_out = 4,
 
         border_size = 2,
 
@@ -72,7 +72,7 @@ hl.config({
 
     -- See https://wiki.hypr.land/Configuring/Layouts/Master-Layout/
     master = {
-        mfact = 0.6,
+        mfact = 0.75,
     },
 
     misc = {
@@ -85,6 +85,23 @@ hl.config({
         force_zero_scaling = true,
     },
 })
+
+-- Workspace switching should be instant. Everything else keeps Hyprland's
+-- default animations. workspacesIn/Out are children of the workspaces leaf,
+-- but are set explicitly so this doesn't depend on inheritance.
+-- For a fast-but-visible slide instead, use e.g.
+--   enabled = true, speed = 0.5, bezier = "linear"   (speed is in ds: 0.5 = 50ms)
+hl.animation({ leaf = "workspaces",    enabled = false })
+hl.animation({ leaf = "workspacesIn",  enabled = false })
+hl.animation({ leaf = "workspacesOut", enabled = false })
+
+-- Windows should pop in and out instantly. windowsIn/Out cover the open/close
+-- slide, fadeIn/Out the opacity ramp that runs alongside it. windowsMove is
+-- left alone so resizing/tiling shuffles still animate.
+hl.animation({ leaf = "windowsIn",  enabled = false })
+hl.animation({ leaf = "windowsOut", enabled = false })
+hl.animation({ leaf = "fadeIn",     enabled = false })
+hl.animation({ leaf = "fadeOut",    enabled = false })
 
 ---------------
 ---- INPUT ----
