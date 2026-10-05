@@ -1,0 +1,4 @@
+[manager]
+prepend_keymap = [
+  { on = "<C-o>", run = "nemo \"$0\"", desc = "Open current directory in Nemo" },
+]
