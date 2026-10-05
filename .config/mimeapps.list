@@ -7,10 +7,17 @@ x-scheme-handler/about=google-chrome.desktop
 x-scheme-handler/unknown=google-chrome.desktop
 text/plain=vim.desktop
 application/pdf=okularApplication_pdf.desktop
-image/jpeg=swayimg.desktop
+image/jpeg=sxiv.desktop
+x-scheme-handler/sgnl=signal.desktop
+x-scheme-handler/signalcaptcha=signal.desktop
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop
+image/x-adobe-dng=sxiv.desktop
+image/tiff=sxiv.desktop
 
 [Added Associations]
-image/png=sxiv.desktop;swayimg.desktop;okularApplication_kimgio.desktop;
+image/png=sxiv.desktop;swayimg.desktop;okularApplication_kimgio.desktop;imv.desktop;
 text/plain=vim.desktop;
 application/pdf=sioyek.desktop;okularApplication_pdf.desktop;
-image/jpeg=swayimg.desktop;
+image/jpeg=swayimg.desktop;sxiv.desktop;
+image/x-adobe-dng=sxiv.desktop;
+image/tiff=sxiv.desktop;
