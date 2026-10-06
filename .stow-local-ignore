@@ -2,3 +2,6 @@
 readme.md
 arch
 setup.sh
+
+# Repo metadata, not a dotfile — must not land at ~/.gitignore.
+\.gitignore

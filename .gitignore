@@ -1,0 +1,15 @@
+# ~/.local/share is a symlink into this repo (`stow --adopt .` folded the
+# whole directory), so every app writes its data here: Trash, KWallet,
+# Telegram, yarn and GitKraken caches. None of it is config, and kwalletd
+# holds secrets. Never commit it. Whitelist hand-written files explicitly.
+.local/share/*
+!.local/share/applications/
+.local/share/applications/*
+!.local/share/applications/everdo.desktop
+
+# Leftover copies from the uv installer; the live ones are in ~/.local/bin,
+# which is a real directory, not a link into this repo.
+.local/bin/uv
+.local/bin/uvx
+.local/bin/env
+.local/bin/env.fish

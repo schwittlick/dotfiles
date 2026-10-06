@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Everdo
+Exec=/home/marcel/.local/share/Everdo-1.10.4.AppImage
+Icon=/path/to/icon.png
+Type=Application
+Categories=Utility; (or other relevant categories)
