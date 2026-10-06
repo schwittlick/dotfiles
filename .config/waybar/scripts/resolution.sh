@@ -14,10 +14,20 @@ apply() {
     out=$(hyprctl eval "hl.monitor({ output = \"$name\", mode = \"$mode\", position = \"$pos\", scale = $scale, disabled = false })" 2>&1) || true
     [[ $out == ok* ]] || out=$(hyprctl keyword monitor "$name,$mode,$pos,$scale" 2>&1) || true
 
-    if [[ $out == ok* ]]; then
+    if [[ $out != ok* ]]; then
+        notify "$name: $out"
+        return
+    fi
+
+    # ok only means the rule was accepted. If the driver rejects the mode
+    # (e.g. a degraded DP link), Hyprland silently falls back to another one.
+    local want=${mode%%@*} got
+    sleep 1
+    got=$(hyprctl monitors -j | jq -r --arg o "$name" '.[] | select(.name == $o) | "\(.width)x\(.height)"')
+    if [[ $mode == preferred || $got == "$want" ]]; then
         notify "$name -> $mode"
     else
-        notify "$name: $out"
+        notify "$name: driver rejected $want, still at $got"
     fi
 }
 
