@@ -6,11 +6,12 @@
 ------------------
 
 hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
-hl.monitor({ output = "DP-4", mode = "3440x1440@59.973", position = "0x0", scale = 1 })
+-- Matched by description: through the USB-C hub the connector name changes
+-- between replugs (DP-3, DP-4, DP-5).
+hl.monitor({ output = "desc:LG Electronics LG HDR 5K 311NTYT3P010", mode = "3440x1440@59.973", position = "0x0", scale = 1 })
 
 -- The lid switch binds only fire on change, so a session started with the lid
--- already closed would modeset eDP-1 together with the external. That combined
--- commit fails and DP-4 falls back to 1920x1080. Apply lid.sh's clamshell rule
+-- already closed would light up eDP-1 as well. Apply lid.sh's clamshell rule
 -- at load time instead: lid closed + external connected -> internal panel off.
 local function clamshell()
     local lid = io.open("/proc/acpi/button/lid/LID0/state")
