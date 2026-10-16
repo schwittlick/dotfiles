@@ -157,3 +157,28 @@ button:hover {
     background-color: #ffffff;
 }
 
+
+/* ---- whisper-ptt push-to-talk indicator (hidden while idle) ---- */
+
+#custom-whisper {
+    padding: 0 10px;
+    margin: 0;
+    min-height: 20px;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+#custom-whisper.recording {
+    background-color: #000000;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#custom-whisper.error {
+    background-color: #000000;
+    color: #ffffff;
+}

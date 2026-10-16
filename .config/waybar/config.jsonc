@@ -10,6 +10,7 @@
         "hyprland/window"
     ],
     "modules-right": [
+        "custom/whisper",
         "pulseaudio",
         "network",
         "power-profiles-daemon",
@@ -97,6 +98,16 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
+    },
+
+    "custom/whisper": {
+        // push-to-talk dictation indicator (~/dev/whisper); hidden while idle
+        "format": "{}",
+        "return-type": "json",
+        "exec": "$HOME/dev/whisper/.venv/bin/whisper-ptt waybar",
+        "restart-interval": 3,
+        "escape": true,
+        "tooltip": true
     },
 
     "custom/resolution": {

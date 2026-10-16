@@ -14,6 +14,7 @@ hl.monitor({ output = "DP-2", mode = "3840x2160@60", position = "0x0", scale = 1
 local terminal    = "kitty"
 local fileManager = "nemo"
 local menu        = "rofi -show drun"
+local whisperPtt  = "~/dev/whisper/.venv/bin/whisper-ptt" -- push-to-talk dictation, see ~/dev/whisper/readme.md
 
 -------------------
 ---- AUTOSTART ----
@@ -128,6 +129,25 @@ end)
 
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("hyprshot -m region"))
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("hyprshot -m region --clipboard-only"))
+
+-- Push-to-talk dictation: hold mainMod + Space to record, release to transcribe and type the
+-- text at the cursor. The release bind does not fire when Super is let go before Space, so the
+-- press handler also polls the Space key until it is released (a duplicate stop is a no-op).
+do
+    local pttPoll = nil
+    local function pttStop()
+        if pttPoll then pttPoll:set_enabled(false); pttPoll = nil end
+        hl.dispatch(hl.dsp.exec_cmd(whisperPtt .. " stop"))
+    end
+    hl.bind(mainMod .. " + Space", function()
+        hl.dispatch(hl.dsp.exec_cmd(whisperPtt .. " start"))
+        if pttPoll then pttPoll:set_enabled(false) end
+        pttPoll = hl.timer(function()
+            if not hl.is_key_down("space") then pttStop() end
+        end, { timeout = 50, type = "repeat" })
+    end)
+    hl.bind(mainMod .. " + Space", pttStop, { release = true })
+end
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "l" }))
