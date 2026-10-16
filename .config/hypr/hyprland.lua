@@ -80,6 +80,8 @@ hl.config({
         force_default_wallpaper = 0,
         disable_hyprland_logo   = true,
         background_color        = 0x000000,
+        -- lets a fresh hyprlock take over if the running one dies (recovery from tty2)
+        allow_session_lock_restore = true,
     },
 
     xwayland = {
@@ -103,6 +105,47 @@ hl.config({
 
 hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
 
+-------------------------------
+---- LOCK SCREEN VT WORKAROUND ----
+-------------------------------
+
+-- After a tty round trip (Ctrl+Alt+F2, back to F1) Hyprland does not repaint the lock
+-- screen. hyprlock then never gets a frame callback, never finishes its fade-out and cannot
+-- unlock even after the password is accepted. Actions via hyprctl from tty2 do not help,
+-- because Hyprland cannot commit while its VT is inactive. So: watch the active VT, and when
+-- ours becomes active again while hyprlock runs, force a repaint with a DPMS off/on cycle.
+if not _G.__vtWatch then
+    local function activeVT()
+        local f = io.open("/sys/class/tty/tty0/active", "r")
+        if not f then return nil end
+        local vt = f:read("*l")
+        f:close()
+        return vt
+    end
+    -- os.execute exit codes are lost (Hyprland reaps children), so read pidof's output
+    local function hyprlockRunning()
+        local p = io.popen("pidof hyprlock")
+        if not p then return false end
+        local out = p:read("*a") or ""
+        p:close()
+        return out:match("%d") ~= nil
+    end
+    local ownVT = activeVT()
+    local lastVT = ownVT
+    _G.__vtWatch = hl.timer(function()
+        local vt = activeVT()
+        if vt and vt ~= lastVT and vt == ownVT and hyprlockRunning() then
+            hl.timer(function()
+                hl.dispatch(hl.dsp.dpms({ action = "off" }))
+                hl.timer(function()
+                    hl.dispatch(hl.dsp.dpms({ action = "on" }))
+                end, { timeout = 300, type = "oneshot" })
+            end, { timeout = 1000, type = "oneshot" })
+        end
+        lastVT = vt or lastVT
+    end, { timeout = 500, type = "repeat" })
+end
+
 ---------------------
 ---- KEYBINDINGS ----
 ---------------------
@@ -112,7 +155,7 @@ local mainMod = "SUPER"
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("swaylock -f"))
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock &"))
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd(
     [[command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()']]))
 
