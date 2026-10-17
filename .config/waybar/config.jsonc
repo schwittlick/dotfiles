@@ -109,10 +109,10 @@
     },
 
     "custom/lyrik-progress": {
-        "exec": "~/.local/bin/waybar_progress.py",
+        "exec": "~/.local/bin/waybar-progress --host lyrik.local",
         "return-type": "json",
         "interval": 5,
-        "on-click": "~/.local/bin/waybar_progress.py --clear-done",
+        "on-click": "~/.local/bin/waybar-progress --host lyrik.local --clear-done",
         "tooltip": true
     }
 }
